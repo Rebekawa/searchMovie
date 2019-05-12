@@ -7,7 +7,7 @@ class Results extends React.Component {
     }
     render() { 
         return (  
-            <div>
+            <div className='resultDiv'>
                 <img src=''></img>
                 <h1>{this.props.movie}</h1>
             </div>

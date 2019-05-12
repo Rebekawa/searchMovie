@@ -36,10 +36,12 @@ class App extends React.Component {
             var movie = <Results movie={movie}/>
 
             movieList.push(movie)
+            console.log(movieList);
+            
 
            })
 
-           this.setState({list: movieList})
+           this.setState({list: movieList })
 
           
         })
@@ -57,18 +59,19 @@ class App extends React.Component {
             this.handleSubmit(e)
           }}>
             <label>
-              movie
+              
           </label>
-            <input required type="text" placeholder='Enter Movie Name' onChange={(e) => this.setState({
+            <input id='movieInput' className='input' required type="text" placeholder='Enter Movie Name' onChange={(e) => this.setState({
               movie: e.target.value
             })} value={this.state.movie}></input>
             <label>
-              year
+              
           </label>
-            <input type="number" placeholder='Enter Movie Year' onChange={(e) => this.setState({
+            <input id='yearInput' className='input' type="number" placeholder='Enter Movie Year' min='1900' onChange={(e) => this.setState({
               year: e.target.value
             })} value={this.state.year}></input>
-            <button type="submit" >Submit</button>
+            <button className='button' type="submit" >Submit</button>
+            <button className='button' >Clear</button>
           </form>
           <Results/>
 
