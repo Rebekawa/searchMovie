@@ -8,7 +8,8 @@ class Results extends React.Component {
     render() { 
         return (  
             <div>
-                <h1>{this.props.results}</h1>
+                <img src=''></img>
+                <h1>{this.props.movie}</h1>
             </div>
         );
     }

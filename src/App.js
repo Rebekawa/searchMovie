@@ -20,10 +20,32 @@ class App extends React.Component {
       console.log(this.state.movie);
       console.log(this.state.year);
 
-      var APIurl = 'http://www.omdbapi.com/movie?query=' + this.state.movie + '&year?query=' + this.state.year + '?i=tt3896198&apikey=c3901c76'
+      // how to get the informations in the url????
+
+      var APIurl = 'http://www.omdbapi.com/movie=' + this.state.movie + '&year=' + this.state.year + '?i=tt3896198&apikey=c3901c76'
       console.log(APIurl);
 
-      
+      axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=c3901c76')
+        .then(function (response) {
+
+          console.log(response.data)
+          var results=response.results
+           var movieList = [];
+
+           results.forEach((movie) => {
+            var movie = <Results movie={movie}/>
+
+            movieList.push(movie)
+
+           })
+
+           this.setState({list: movieList})
+
+          
+        })
+        .catch(function (e) {
+          console.log("ERROR ", e);
+        })
       
   }
 
@@ -48,6 +70,7 @@ class App extends React.Component {
             })} value={this.state.year}></input>
             <button type="submit" >Submit</button>
           </form>
+          <Results/>
 
         </div>
 
