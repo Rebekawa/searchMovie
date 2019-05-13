@@ -1,10 +1,6 @@
 body {
   background-color: black;
   color: white
-};
-
-.form{
-  background-color: aquamarine
 }
 
 .input{
@@ -23,13 +19,12 @@ body {
 }
 
 .resultDiv{
-  width: 400px;
-  height: 400px;
-
+  width: 450px;
+  height: 450px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -200px 0 0 -200px;
+  margin: -225px 0 0 -225px;
   
 }
 
@@ -49,4 +44,26 @@ body {
 
 #movieTitle{
   color:Red;
+}
+
+.flexDiv{
+  display: flex;
+}
+
+.flexDiv img {
+  height: 350px;
+  width: auto;
+  margin: 10px;
+}
+
+.infosDiv{
+  margin: 10px;
+  height: 350px;
+  width: 800px;
+  overflow: scroll;
+}
+
+.noMovie{
+  text-align: center;
+  vertical-align: middle;
 }

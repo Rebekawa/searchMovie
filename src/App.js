@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { forInStatement } from '@babel/types';
 import Results from "./components/Results"
 import axios from "axios"
 class App extends React.Component {
@@ -15,16 +14,14 @@ class App extends React.Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.movie);
-    console.log(this.state.year);
-
-    // how to get the informations in the url????
 
     var APIurl = `http://www.omdbapi.com/?apikey=c3901c76&t=${this.state.movie}&y=${this.state.year}`
-    console.log(APIurl);
     let that = this;
     axios.get(APIurl)
       .then(function (response) {
+        console.log(response.data);
+        
+        
         that.setState({
           movieObj: response.data
         })
@@ -53,8 +50,13 @@ class App extends React.Component {
             year: e.target.value
           })} value={this.state.year}></input>
           <button className='button' type="submit" >Submit</button>
-          <button className='button' >Clear</button>
+          <button className='button' onClick={(e) => this.setState({
+            movie: '',
+            year:'',
+            movieObj: null
+          })}>Clear</button>
         </form>
+        
         <Results movie={this.state.movieObj} />
 
       </div>
